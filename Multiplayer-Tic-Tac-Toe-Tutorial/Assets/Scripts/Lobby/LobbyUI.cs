@@ -31,13 +31,13 @@ public class LobbyUI : MonoBehaviour {
         playerSingleTemplate.gameObject.SetActive(false);
 
         changeMarineButton.onClick.AddListener(() => {
-            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Marine);
+            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.Weapon.Marine);
         });
         changeNinjaButton.onClick.AddListener(() => {
-            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Ninja);
+            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.Weapon.Ninja);
         });
         changeZombieButton.onClick.AddListener(() => {
-            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.PlayerCharacter.Zombie);
+            LobbyManager.I.UpdatePlayerCharacter(LobbyManager.Weapon.Zombie);
         });
 
         leaveLobbyButton.onClick.AddListener(() => {

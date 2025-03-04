@@ -184,7 +184,7 @@ public class LobbyManager : Singleton<LobbyManager>
     {
         return new Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject> {
             { KEY_PLAYER_NAME, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, playerName) },
-            { KEY_PLAYER_CHARACTER, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, PlayerCharacter.Marine.ToString()) }
+            { KEY_PLAYER_CHARACTER, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Public, Weapon.Marine.ToString()) }
         });
     }
 
@@ -198,11 +198,11 @@ public class LobbyManager : Singleton<LobbyManager>
             switch (gameMode)
             {
                 default:
-                case GameMode.CaptureTheFlag:
-                    gameMode = GameMode.Conquest;
+                case GameMode.ShooterPlatformer:
+                    gameMode = GameMode.TicTacToe;
                     break;
-                case GameMode.Conquest:
-                    gameMode = GameMode.CaptureTheFlag;
+                case GameMode.TicTacToe:
+                    gameMode = GameMode.ShooterPlatformer;
                     break;
             }
 
@@ -323,7 +323,7 @@ public class LobbyManager : Singleton<LobbyManager>
         }
     }
 
-    public async void UpdatePlayerCharacter(PlayerCharacter playerCharacter)
+    public async void UpdatePlayerCharacter(Weapon playerCharacter)
     {
         if (joinedLobby != null)
         {
@@ -493,14 +493,14 @@ public class LobbyManager : Singleton<LobbyManager>
 
     public enum GameMode
     {
-        CaptureTheFlag,
-        Conquest
+        TicTacToe,
+        ShooterPlatformer
     }
 
-    public enum PlayerCharacter
+    public enum Weapon
     {
-        Marine,
-        Ninja,
-        Zombie
+        MachineGun,
+        Pistol,
+        Shotgun
     }
 }

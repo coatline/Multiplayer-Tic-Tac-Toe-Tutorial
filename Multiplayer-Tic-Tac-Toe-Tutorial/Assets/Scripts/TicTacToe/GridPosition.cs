@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class GridPosition : MonoBehaviour
+namespace TicTacToe
 {
-    [SerializeField] int x;
-    [SerializeField] int y;
-
-    private void OnMouseDown()
+    public class GridPosition : MonoBehaviour
     {
-        GameManager.I.ClickedOnGridPositionRPC(x, y, GameManager.I.LocalPlayerType);
+        [SerializeField] int x;
+        [SerializeField] int y;
+
+        private void OnMouseDown()
+        {
+            GameManager.I.ClickedOnGridPositionRPC(x, y, GameManager.I.LocalPlayerType);
+        }
     }
 }
